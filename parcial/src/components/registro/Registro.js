@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Box, Button, Checkbox, Container, FormControlLabel, Grid, InputAdornment, Modal, Paper, TextField, Typography } from '@mui/material';
 import LockIcon from '@mui/icons-material/Lock';
 import '../registro/Registro.scss';
-
+import axios from "axios";
 
 
 const Registro = () => {
@@ -41,9 +41,19 @@ const Registro = () => {
     };
 
     const handleRegister = () => {
-        console.log(userData);
+        axios
+        .post("http://localhost:3100/api/v1/users/new-user", userData)
+        .then((response) => {
+            console.log(response.data);
+            alert("Usuario registrado exitosamente.");
+        })
+        .catch((error) => {
+            console.error(error);
+            alert("Error al registrar el usuario.");
+        });
     };
 
+    
     return (
         <Container maxWidth="xs">
             <Paper className="xd" elevation={3} sx={{ padding: 2, display: 'flex', flexDirection: 'column', alignItems: 'center',backgroundColor: 'RGB(250,250,250)' }}>

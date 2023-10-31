@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 //app conecatr por el puerto local el express
 //especificar los middleware a utilizar
 const app = express();
@@ -7,6 +8,8 @@ const API_VERSION ="api/v1"
 
 const userRoutes = require("./routes/user")
 const authRoutes = require("./routes/auth")
+
+app.use(cors());
 
 
 //Pruebas con extension REST Client
