@@ -117,10 +117,8 @@ const Registro = () => {
                     }
                 })
                 .then((response) => {
-                    // Maneja la respuesta de la solicitud protegida
                 })
                 .catch((error) => {
-                    // Maneja los errores
                 });
         } else {
             alert('Debes iniciar sesión para acceder a esta ruta protegida.');
@@ -230,7 +228,7 @@ const Registro = () => {
                         padding: 2,
                         width: 300,
                         border: '2px solid #000',
-                        overflowY: 'auto', // Agregamos desplazamiento vertical
+                        overflowY: 'auto',
                     }}
                 >
                     <Typography variant="h6" gutterBottom>
@@ -239,17 +237,17 @@ const Registro = () => {
                     
                     <p>
                     POLÍTICA GENERAL DE TRATAMIENTO DE DATOS PERSONALES 
-CLIENTES, PROSPECTOS DE CLIENTES, FUNCIONARIOS, PROVEEDORES Y VISITANTES
+                    CLIENTES, PROSPECTOS DE CLIENTES, FUNCIONARIOS, PROVEEDORES Y VISITANTES
 
-ENTRADA EN VIGENCIA: OCTUBRE DE 2023
-ÚLTIMA VERSIÓN: OCTUBRE DE 2023
+                    ENTRADA EN VIGENCIA: OCTUBRE DE 2023
+                    ÚLTIMA VERSIÓN: OCTUBRE DE 2023
 
-INTRODUCCIÓN
-Nombre pág. S.A.S. (en adelante, Nombre pág) es responsable de los Datos Personales e información que le suministran sus clientes, prospectos de clientes proveedores, contratistas, y visitantes (en adelante, los Titulares).
+                    INTRODUCCIÓN
+                    Nombre pág. S.A.S. (en adelante, Nombre pág) es responsable de los Datos Personales e información que le suministran sus clientes, prospectos de clientes proveedores, contratistas, y visitantes (en adelante, los Titulares).
 
-En la presente Política de Tratamiento se establecen las finalidades, medidas y procedimientos de las Bases de Datos de Nombre pág así como los mecanismos con que los Titulares cuentan para conocer, actualizar, rectificar, suprimir los datos suministrados o revocar la autorización que se otorga con la aceptación de la presente Política de Tratamiento.
+                    En la presente Política de Tratamiento se establecen las finalidades, medidas y procedimientos de las Bases de Datos de Nombre pág así como los mecanismos con que los Titulares cuentan para conocer, actualizar, rectificar, suprimir los datos suministrados o revocar la autorización que se otorga con la aceptación de la presente Política de Tratamiento.
 
-La aceptación de propuestas, la celebración de contratos, el diligenciamiento de formatos, el acceso a los Servicios de la página web www.nombrepág.co (en adelante la Página Web) y/o la aceptación expresa o inequívoca de las presente políticas, implica la aceptación de los Titulares de la Política de Tratamiento y Protección de Datos Personales y su autorización para los usos y otros tratamientos que aquí se describen.
+                    La aceptación de propuestas, la celebración de contratos, el diligenciamiento de formatos, el acceso a los Servicios de la página web www.nombrepág.co (en adelante la Página Web) y/o la aceptación expresa o inequívoca de las presente políticas, implica la aceptación de los Titulares de la Política de Tratamiento y Protección de Datos Personales y su autorización para los usos y otros tratamientos que aquí se describen.
                     </p>
                     <Button onClick={handleCloseModal} variant="contained" color="primary">
                         Cerrar
