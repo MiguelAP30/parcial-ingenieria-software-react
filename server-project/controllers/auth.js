@@ -86,16 +86,40 @@ const login = async(req,res)=>{
 
 const getMe = async(req,res) => {
     try{
-        const { id } = req.params;
+        const { id } = req.user._doc;
         const user= await userModel.findById(id)
         res.status(200).json(user);
     }catch(err){
         res.status(404).json({message : err.message});
     }
-}
+};
+
+const createUser = async (req, res) => {
+    const { firstname, lastname, email, current_password } = req.body;
+    try {
+        // Validaciones y lógica para crear un nuevo usuario
+        // Aquí puedes usar tus validaciones existentes
+
+        // Guarda el nuevo usuario en la base de datos
+        const newUser = await userModel.create({
+            firstname,
+            lastname,
+            email: email.toLowerCase(),
+            current_password,
+        });
+        const userStorage = await newUser.save();
+
+        // Respuesta exitosa
+        res.status(201).json(newUser);
+    } catch (err) {
+        // Manejo de errores
+        res.status(400).json({ message: err.message });
+    }
+};
 
 module.exports={
     signin,
     login,
-    getMe
+    getMe,
+    createUser,
 };

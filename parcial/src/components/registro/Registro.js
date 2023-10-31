@@ -1,7 +1,9 @@
+
 import React, { useState } from 'react';
 import { Box, Button, Checkbox, Container, FormControlLabel, Grid, InputAdornment, Modal, Paper, TextField, Typography } from '@mui/material';
 import LockIcon from '@mui/icons-material/Lock';
-import "./Registro.scss";
+import '../registro/Registro.scss';
+
 
 
 const Registro = () => {
@@ -44,7 +46,7 @@ const Registro = () => {
 
     return (
         <Container maxWidth="xs">
-            <Paper elevation={3} sx={{ padding: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <Paper className="xd" elevation={3} sx={{ padding: 2, display: 'flex', flexDirection: 'column', alignItems: 'center',backgroundColor: 'RGB(250,250,250)' }}>
                 <Typography variant="h5" component="div">
                     Registro
                 </Typography>
