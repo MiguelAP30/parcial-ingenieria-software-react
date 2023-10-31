@@ -6,6 +6,7 @@ const bcrypt = require("bcrypt");
 const signin = async(req,res)=>{
     const{firstname, lastname, email, current_password}= req.body;
     try{
+        
         if(!email){
             res.status(400).json({message : "el email es requerido"});
             throw new Error("el email es requerido")
@@ -18,14 +19,19 @@ const signin = async(req,res)=>{
         const salt = await bcrypt.genSalt(10);
         const current_password_hash = await bcrypt.hash(current_password,salt);
 
+        
+
         const newUser = await userModel.create({
+
             firstname,
             lastname,
             email: emailLowerCase,
             current_password: current_password_hash,
-        })
+        });
+        
         const userStorage = await newUser.save();
         res.status(201).json(newUser);
+        
     }catch(err){
         res.status(400).json({message : err.message});
     }
@@ -64,7 +70,6 @@ const login = async(req,res)=>{
         if(!check){
             throw new Error("La contraseña no es correcta");
         }
-
         const token = await generateToken(userStore);
         const refresh = await refreshToken(userStore);
         console.log(token);
@@ -73,12 +78,6 @@ const login = async(req,res)=>{
             acces: token,
             refresh: refresh
         });
-        /* const isMatch = await userStore.comparePassword(current_password);
-        console.log(isMatch);
-
-        if(!isMatch){
-            throw new Error("la contraseña no es correcta");
-        } */
     }catch(err){
         res.status(400).json({message : err.message});
     }

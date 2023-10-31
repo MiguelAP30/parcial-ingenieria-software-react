@@ -9,10 +9,10 @@ import axios from "axios";
 const Registro = () => {
     const [openModal, setOpenModal] = useState(false);
     const [userData, setUserData] = useState({
-        firstName: '',
-        lastName: '',
+        firstname: '',
+        lastname: '',
         email: '',
-        password: '',
+        current_password: '',
         authorized: false,
     });
 
@@ -41,16 +41,21 @@ const Registro = () => {
     };
 
     const handleRegister = () => {
-        axios
-        .post("http://localhost:3100/api/v1/users/new-user", userData)
-        .then((response) => {
-            console.log(response.data);
-            alert("Usuario registrado exitosamente.");
-        })
-        .catch((error) => {
-            console.error(error);
-            alert("Error al registrar el usuario.");
-        });
+        // Validar si el usuario ha marcado el checkbox de autorización
+        if (userData.authorized) {
+            axios
+                .post("http://localhost:3100/api/v1/auth/signin", userData)
+                .then((response) => {
+                    console.log(response.data);
+                    alert("Usuario registrado exitosamente.");
+                })
+                .catch((error) => {
+                    console.error(error);
+                    alert("Error al registrar el usuario.");
+                });
+        } else {
+            alert("Debes autorizar el tratamiento de datos para registrarte.");
+        }
     };
 
     
@@ -62,16 +67,16 @@ const Registro = () => {
                 </Typography>
                 <TextField
                     label="First Name"
-                    name="firstName"
-                    value={userData.firstName}
+                    name="firstname"
+                    value={userData.firstname}
                     onChange={handleInputChange}
                     fullWidth
                     margin="normal"
                 />
                 <TextField
                     label="Last Name"
-                    name="lastName"
-                    value={userData.lastName}
+                    name="lastname"
+                    value={userData.lastname}
                     onChange={handleInputChange}
                     fullWidth
                     margin="normal"
@@ -87,8 +92,8 @@ const Registro = () => {
                 <TextField
                     label="Password"
                     type="password"
-                    name="password"
-                    value={userData.password}
+                    name="current_password"
+                    value={userData.current_password}
                     onChange={handleInputChange}
                     fullWidth
                     margin="normal"
