@@ -49,7 +49,29 @@ const comparePassword= () =>{
     });
 }
 
-const login = async(req,res)=>{
+const login = async (req, res) => {
+    const { email, current_password } = req.body;
+    try {
+        // ... (código existente para verificar las credenciales)
+        if (!check) {
+            throw new Error("La contraseña no es correcta");
+        }
+        const token = jwt.sign({ id: userStore._id }, process.env.SECRET_KEY, {
+            expiresIn: "1h", // Cambia la duración del token según tus necesidades
+        });
+        const refresh = await refreshToken(userStore);
+        console.log(token);
+
+        res.status(200).json({
+            access: token,
+            refresh: refresh
+        });
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+};
+
+/* const login = async(req,res)=>{
     const {email,current_password} = req.body;
     try{
         if( !email || !current_password ) {
@@ -81,7 +103,7 @@ const login = async(req,res)=>{
     }catch(err){
         res.status(400).json({message : err.message});
     }
-};
+}; */
 
 const getMe = async(req,res) => {
     try{
