@@ -1,0 +1,61 @@
+/* Add your custom styles here */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+}
+
+.paper {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: #ff0000;
+    color: #fff; 
+}
+
+
+.title {
+    margin-bottom: 16px;
+}
+
+.button {
+    margin-top: 16px;
+}
+
+.checkbox-label {
+    text-align: left;
+}
+
+.modal-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(19, 34, 167);
+    padding: 16px;
+    width: 300px;
+    border: 2px solid #000;
+}
+
+.modal-title {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.modal-content {
+    margin-bottom: 16px;
+}
+
+.modal-button {
+    background-color: #007acc; /* Botón azul */
+    color: #7a1515;
+}
+
+.modal-button:hover {
+    background-color: #005a9c; /* Color azul más oscuro al pasar el ratón */
+}
+
